@@ -1,23 +1,25 @@
-        function calculateBMI() {
+function calculateBMI() {
 
-            let weight = document.getElementById("weight").value;
-            let height = document.getElementById("height").value;
+    let weight = Number(document.getElementById("weight").value);
+    let height = Number(document.getElementById("height").value);
 
-            if (weight === "" || height === "") {
+    let bmi = weight / (height * height);
 
-                document.getElementById("result").innerHTML =
-                    "Please enter both values.";
+    let result;
 
-                return;
-            }
+    if (bmi < 18.5) {
+        result = "Underweight";
+    }
+    else if (bmi < 25) {
+        result = "Normal";
+    }
+    else if (bmi < 30) {
+        result = "Overweight";
+    }
+    else {
+        result = "Obese";
+    }
 
-            // Convert height from cm to metres
-            height = height / 100;
-
-            // BMI formula
-            let bmi = weight / (height * height);
-
-            document.getElementById("result").innerHTML =
-                "Your BMI is: " + bmi.toFixed(2);
-        }
-
+    document.getElementById("result").innerHTML =
+        "BMI = " + bmi.toFixed(2) + "<br>" + result;
+}
