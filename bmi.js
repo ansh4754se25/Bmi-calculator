@@ -20,6 +20,6 @@ function calculateBMI() {
         result = "Obese";
     }
 
-    document.getElementById("result").innerHTML =
-        "BMI = " + bmi.toFixed(2) + "<br>" + result;
+    document.getElementById("result").textContent =
+        "BMI = " + bmi.toFixed(2) + "  " + result;
 }
